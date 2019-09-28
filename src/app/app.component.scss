@@ -1,3 +1,49 @@
-#centerMenu{
-  
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.avatar img {
+    max-width: 300px;
+}
+
+#name {
+    margin-bottom: 5px;
+}
+
+main {
+    margin: auto auto;
+}
+
+#main {
+    height: auto;
+    width: auto;
+    padding: 50px 20px;
+    border-radius: 5px;
+    z-index: 10;
+    background-color: white !important;
+}
+
+#icons {
+    margin-top: 20px;
+
+    li {
+        display: inline;
+        font-size: 64px;
+        padding: 0 10px;
+        border-left: gray 1px solid;
+    }
+
+    li:first-child {
+        border: none;
+    }
 }
