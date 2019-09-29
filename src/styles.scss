@@ -1,21 +1,36 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    display: flex;
+    background: #232424;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
 }
 
 html {
-    height: 100%;
     width: 100%;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(33, 33, 33);
 }
 
+footer {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: auto auto 0;
+}
+
+@media screen and (max-width: 425px) {
+    body {
+        background: white;
+    }
+    footer {
+        color: black;
+    }
+}
