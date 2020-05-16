@@ -2,12 +2,12 @@
   "name": "turulix-de",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+      "ng": "ng",
       "start": "ng serve --disable-host-check",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+      "build": "ng build",
+      "test": "ng test",
+      "lint": "ng lint",
+      "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
