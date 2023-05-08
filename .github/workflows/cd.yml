@@ -1,0 +1,41 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 18 ]
+
+    env:
+      IMAGE_NAME: turulix.de
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn --no-immutable
+
+      - name: Build
+        run: yarn build
+
+      - name: Deploy
+        run: |
+          docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
+          docker build . --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
+          IMAGE_ID=${{ vars.REGISTRY_URL }}/${{ secrets.REGISTRY_USERNAME }}/$IMAGE_NAME
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          docker tag $IMAGE_NAME $IMAGE_ID:latest
+          docker tag $IMAGE_NAME $IMAGE_ID:${{ github.run_number }}-${{ github.run_attempt }}
+          docker push $IMAGE_ID:${{ github.run_number }}-${{ github.run_attempt }}
+          docker push $IMAGE_ID:latest
