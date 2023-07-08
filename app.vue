@@ -24,7 +24,7 @@ const socials = [
             <div class="text-center" style="font-size: 18px">
                 <h1 class="" style="font-size: 2em; font-weight: bold; text-decoration-style: solid">Turulix</h1>
                 <p>Gamer & Developer from <a href="https://www.google.com/search?q=Germany">Germany</a></p>
-                <p>Mainly developing in Java & Kotlin</p>
+                <p>Mainly developing in C#, Python & Rust</p>
             </div>
             <div>
                 <ul class="flex justify-evenly">
